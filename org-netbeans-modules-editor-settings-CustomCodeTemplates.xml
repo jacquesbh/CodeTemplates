@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE codetemplates PUBLIC "-//NetBeans//DTD Editor Code Templates settings 1.0//EN" "http://www.netbeans.org/dtds/EditorCodeTemplates-1_0.dtd">
+<codetemplates>
+    <codetemplate abbreviation="gsc" xml:space="preserve">
+        <code><![CDATA[Mage::getStoreConfig('${cursor}')]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="model" xml:space="preserve">
+        <code><![CDATA[Mage::getModel('${cursor}')]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="single" xml:space="preserve">
+        <code><![CDATA[Mage::getSingleton('${cursor}');]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="store" xml:space="preserve">
+        <code><![CDATA[Mage::app()->getStore()]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="param" xml:space="preserve">
+        <code><![CDATA[$this->getRequest()->getParam('${cursor}', null)]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="t__" xml:space="preserve">
+        <code><![CDATA[$this->__('${cursor}')]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="locale" xml:space="preserve">
+        <code><![CDATA[Mage::app()->getLocale()]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="logE" xml:space="preserve">
+        <code><![CDATA[Mage::logException(${$e});]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="attribute" xml:space="preserve">
+        <code><![CDATA[// Add the attribute `${attribute_code}` with some fields
+$installer->addAttribute(Mage_Catalog_Model_Product::ENTITY, '${attribute_code}', array(
+    'label' => '${label}', // The label ;)
+    'group' => '${General}', // The group (in the admin page)
+    'input' => '${text}', // Used for the input type
+    'type' => '${varchar}', // The attribute type (varchar, text, int, decimal...)
+    'required' => ${false}, // Is it required?
+    //'source' => '', // Used for a source model
+    //'backend' => '', // Used for a backend model (before and after save, before and after load of the product)
+    //'frontend' => '', // Used for a frontend model (like the image frontend model with the getUrl method)
+    //'class' => '', // Used for a backend HTML class (usefull for javascript validation – with the 'validate-email' class for example)
+    'comparable' => false, // Comparable? (on front, via the comparable products).
+    //'default' => '', // The default value
+    'filterable' => false, // Filterable? (on front, in the category view or search)
+    //'apply_to' => '', // Used for product type restrictions
+    'global' => Mage_Catalog_Model_Resource_Eav_Attribute::SCOPE_GLOBAL, // The scope
+    'is_configurable' => false, // Is it a configurable attribute?
+    'is_html_allowed_on_front' => false, // Is HTML allowed on front?
+    'note' => '${cursor}', // Maybe a simple note below the input field in admin
+    'searchable' => false, // Is it searchable?
+    'sort_order' => '', // Which position on the admin page?
+    'unique' => false, // Is it unique?
+    'used_for_sort_by' => false, // Is it used for the 'sort by' select on a catalog/search page?
+    'used_in_product_listing' => true, // In Flat?
+    'user_defined' => false, // Is it user defined? If false the attribute isn't removable. TRUE needed if configurable attribute.
+    'visible' => true, // Is it visible? If true the field appears in admin product page.
+    'visible_on_front' => true, // Visible on front?
+    'visible_in_advanced_search' => false, // Is it visible on advanced search?
+    'wysiwyg_enabled' => false, // Is Wywiwyg enable? (use 'textarea' input if you put true ;))
+));]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="debug" xml:space="preserve">
+        <code><![CDATA[Zend_Debug::dump(${cursor});]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="date" xml:space="preserve">
+        <code><![CDATA[Mage::app()->getLocale()->date()]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="newblock" xml:space="preserve">
+        <code><![CDATA[// Stores
+Mage::app()->reinitStores();
+
+/**
+ * Create the ${identifier} block
+ */
+$block = Mage::getModel('cms/block');
+$block->setData(array(
+    'title' => '${title}',
+    'identifier' => '${identifier}',
+    'content' => '${content}',
+    'creation_time' => now(),
+    'update_time' => now(),
+    'is_active' => 1,
+    'stores' => array_keys(Mage::app()->getStores())
+));
+$block->save();]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="customer" xml:space="preserve">
+        <code><![CDATA[Mage::helper('customer')->getCustomer()]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="messages" xml:space="preserve">
+        <code><![CDATA[Mage::getSingleton('core/session')->addSuccess('core message');
+Mage::getSingleton('core/session')->addError('core message');
+Mage::getSingleton('core/session')->addWarning('core message');
+Mage::getSingleton('core/session')->addNotice('core message');
+Mage::getSingleton('customer/session')->addSuccess('customer message');
+Mage::getSingleton('catalog/session')->addSuccess('catalog message');
+Mage::getSingleton('checkout/session')->addSuccess('checkout message');]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="response" xml:space="preserve">
+        <code><![CDATA[Mage::app()->getResponse()]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="bigcom" xml:space="preserve">
+        <code><![CDATA[/*************************************************************]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="help" xml:space="preserve">
+        <code><![CDATA[Mage::helper('${cursor}')]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="layout" xml:space="preserve">
+        <code><![CDATA[Mage::app()->getLayout()]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="request" xml:space="preserve">
+        <code><![CDATA[Mage::app()->getRequest()]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="mlog" xml:space="preserve">
+        <code><![CDATA[Mage::log(__METHOD__ . ':' . __LINE__);]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="action" xml:space="preserve">
+        <code><![CDATA[Mage::app()->getFrontController()->getAction()]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="config" xml:space="preserve">
+        <code><![CDATA[Mage::app()->getConfig()]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="mdebug" xml:space="preserve">
+        <code><![CDATA[Zend_Debug::dump(__METHOD__ . ':' . __LINE__);]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="app" xml:space="preserve">
+        <code><![CDATA[Mage::app()]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="mail" xml:space="preserve">
+        <code><![CDATA[$mailTemplate = Mage::getModel('core/email_template');
+$mailTemplate
+    ->setDesignConfig(array('area' => '${frontend}'))
+    ->sendTransactional(
+        '${name_in_config}',
+        Mage::getStoreConfig('contacts/email/sender_email_identity'),
+        Mage::getStoreConfig('contacts/email/recipient_email'),
+        null,
+        array( // data
+        )
+    );]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="connection" xml:space="preserve">
+        <code><![CDATA[/* @var $res Mage_Core_Model_Resource */
+$res = Mage::getSingleton('core/resource');
+/* @var $cn Varien_Db_Adapter_Pdo_Mysql */
+$cn  = $res->getConnection('core_write');]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="redir" xml:space="preserve">
+        <code><![CDATA[$this->_redirect('${path}');]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="trace" xml:space="preserve">
+        <code><![CDATA[Mage::log(mageDebugBacktrace(true));]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="resource" xml:space="preserve">
+        <code><![CDATA[Mage::getResourceModel('${cursor}')]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="regr" xml:space="preserve">
+        <code><![CDATA[Mage::register('${name}', ${$object});]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="log" xml:space="preserve">
+        <code><![CDATA[Mage::log(${cursor});]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="zdd" xml:space="preserve">
+        <code><![CDATA[Zend_Debug::dump(${cursor});
+exit;]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="field" xml:space="preserve">
+        <code><![CDATA[${$fieldset}->addField('${fieldname}', '${type}', array(
+    'label' => Mage::helper('${helper}')->__("${label}"),
+    'name' => '${name}',
+    'class' => '${class}',
+    'required' => ${false}
+));]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="gmt" xml:space="preserve">
+        <code><![CDATA[Mage::getSingleton('core/date')->gmtDate()]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="req1" xml:space="preserve">
+        <code><![CDATA[require_once '${cursor}';]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="session" xml:space="preserve">
+        <code><![CDATA[Mage::getSingleton('${cursor}/session');]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="reg" xml:space="preserve">
+        <code><![CDATA[Mage::registry('${cursor}')]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="decorate_status" xml:space="preserve">
+        <code><![CDATA[/**
+ * Decorate status column values
+ * @return string
+ */
+public function decorateStatus($value, $row, $column, $isExport)
+{
+    if ((bool) $row->getIsActive()) {
+        $class = 'grid-severity-notice';
+    } else {
+        $class = 'grid-severity-critical';
+    }
+    return '<span class="'.$class.'"><span>'.$value.'</span></span>';
+}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="column" xml:space="preserve">
+        <code><![CDATA[$this->addColumn(
+    '${code}',
+    array(
+        'header'=> Mage::helper('${helper}')->__('${name}'),
+        'width' => ${1},
+        'type'  => '${number}',
+        'index' => '${index}',
+        'filter' => false,
+        'sortable' => false
+    )
+);]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="sess" xml:space="preserve">
+        <code><![CDATA[Mage::getSingleton('${cursor}/session')]]></code>
+    </codetemplate>
+    <codetemplate abbreviation="handles" xml:space="preserve">
+        <code><![CDATA[Mage::app()->getLayout()->getUpdate()->getHandles()]]></code>
+    </codetemplate>
+</codetemplates>
